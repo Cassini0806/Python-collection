@@ -71,7 +71,7 @@ def terminal():
 def menu():
     key = input("What will you do today? ")
     if key == "help":
-        print("Available Commands: datetime, files, list, help")
+        print("Available Commands: clear, datetime, files, list, help")
         menu()
     elif key == "files":
         terminal()
@@ -82,7 +82,10 @@ def menu():
         menu()
     elif key == "list":
         print("people ID: 83 | locations ID: 49 | concepts ID: 38 | storylines ID: 41")
-        menu()     
+        menu()
+     elif key == "clear":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        menu()
 
 print(r"""
 888888b.            888    888b     d888                          .d8888b.                    888                           
