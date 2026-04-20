@@ -1,4 +1,5 @@
 from random import choice
+from os import system
 
 def nova_palavra():
     """sorteia uma palavra aleatória de uma lista""" 
@@ -55,6 +56,8 @@ def rodada(palavra, texto_revelado):
 
 def formatacao(texto_revelado, vidas):
     """formata as informações na tela"""
+
+    system("clear")
     print(f"Você tem {vidas} vidas.")
     print(texto_revelado)
 
