@@ -17,10 +17,11 @@ def nova_palavra():
 ]
     return choice(palavras)
 
-def rodada(palavra, texto_revelado):
+def rodada(palavra, texto_revelado, letras):
     """função que recebe a palavra sorteada e o input do jogador, retornando quais letras foram adivinhadas"""
     entrada = input(">>> ").lower()
     chute = entrada[0]
+    letras = letras.append(chute)
     pre_texto = ""
     novo_texto = ""
 
@@ -54,10 +55,11 @@ def rodada(palavra, texto_revelado):
                                                                                   
     return novo_texto
 
-def formatacao(texto_revelado, vidas):
+def formatacao(texto_revelado, vidas, letras):
     """formata as informações na tela"""
-
-    system("clear")
+    
+    system("clear")    
+    print(f"Letras tentadas: {letras}")
     print(f"Você tem {vidas} vidas.")
     print(texto_revelado)
 
@@ -66,9 +68,10 @@ def main(vidas):
     
     palavra = nova_palavra()
     texto_revelado = "-" * len(palavra)
+    letras = []
     while True:
-        formatacao(texto_revelado, vidas)
-        texto_revelado = rodada(palavra, texto_revelado)
+        formatacao(texto_revelado, vidas, letras)
+        texto_revelado = rodada(palavra, texto_revelado, letras)
         if palavra == texto_revelado:
             print("Você Ganhou :D")
             print(f"A palavra era '{palavra}'.")
