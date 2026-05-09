@@ -2,6 +2,8 @@ import os
 import subprocess
 import click 
 
+#Script para limpar pastas que enchem demais. Execute-o usando o interpretador python em um cronjob do anacron ou do cron.
+
 @click.command()
 @click.argument("caminho")
 
